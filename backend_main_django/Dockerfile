@@ -5,6 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 WORKDIR /code
 COPY requirements.txt /code/
 RUN apt update && apt install -y python3-pip                                  \
+    && /usr/local/bin/python -m pip install --upgrade pip                     \
     && pip3 install -r requirements.txt                                       \
     && apt remove -y python3-pip                                              \
     && apt autoremove --purge -y                                              \
