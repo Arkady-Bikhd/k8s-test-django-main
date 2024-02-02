@@ -19,11 +19,41 @@ minikube addons enable ingress
 ```
 minikube image build -t имя_образа backend_main_django/
 ```
-Отредактируйте файл `test-django-configmap.yaml`, подставив свои значения переменных окружения.
+Зайдите в папку `kuber` и создайте файл `secrets` для хранения переменных окружения 
+в данном файле укажите переменные окружения проекта в поле `data`
+
+```shell-session
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-django-config  
+data:
+  ALLOWED_HOSTS: "localhost, 127.0.0.1, your_service_IP" or just "*"
+  DATABASE_URL: postgres://database_username:database_password@host_IP:host_port/database_name
+  DEBUG: "False"
+  SECRET_KEY: your_sercret_key
+```
+
+запустите загрузку переменных окружения
+
+```shell-session
+kubectl apply -f secrets.yaml
+```
 Запустите Django-приложение в кластере командой:
 ```
 kubectl apply -f kuber/
 ```
+Файл `kuber_ingress.yaml` запускает настройку связывающую имя хоста с подом джанго в кластере
+
+Запуск настройки
+```shell-session
+kubectl apply -f kuber_ingress.yaml
+```
+После запуска настройки необходимо посмотреть ip, на котором запустилась `ingress`
+```shell-session
+kubectl get ingress
+```
+
 Установите и настройте [Helm](https://helm.sh/):
 ```
 sudo snap install helm --classic
