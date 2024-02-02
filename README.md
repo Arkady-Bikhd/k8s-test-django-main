@@ -47,7 +47,7 @@ kubectl apply -f kuber/
 
 Запуск настройки
 ```shell-session
-kubectl apply -f kuber_ingress.yaml
+kubectl apply -f test-django-ingress.yaml
 ```
 После запуска настройки необходимо посмотреть ip, на котором запустилась `ingress`
 ```shell-session
