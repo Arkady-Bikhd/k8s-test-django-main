@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-django-config
+data:
+  name: ALLOWED_HOSTS
+  valueFrom:
+    secretKeyRef:
+       name: test-secret
+       key: allowed_hosts
+  name: DATABASE_URL
+  valueFrom:
+    secretKeyRef:
+       name: test-secret
+       key: database_url
+  name: DEBUG
+  valueFrom:
+    secretKeyRef:
+       name: test-secret
+       key: debug
+  name: SECRET_KEY
+  valueFrom:
+    secretKeyRef:
+       name: test-secret
+       key: secret_key
