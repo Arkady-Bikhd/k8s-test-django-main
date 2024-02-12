@@ -27,10 +27,8 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: test-secret
-data:
-  allowed_hosts: "localhost, 127.0.0.1, your_service_IP" or just "*"
-  database_url: postgres://database_username:database_password@host_IP:host_port/database_name
-  debug: "False"
+data:  
+  database_url: postgres://database_username:database_password@host_IP:host_port/database_name  
   secret_key: your_sercret_key
 ```
 
