@@ -28,5 +28,5 @@ spec:
               - configMapRef:
                   name: test-django-config
               - secretRef:
-		              name: test-secret
+		  name: test-secret
           restartPolicy: Never
