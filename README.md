@@ -24,14 +24,14 @@ minikube image build -t имя_образа backend_main_django/
 
 ```shell-session
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
-  name: test-django-config  
+  name: test-secret
 data:
-  ALLOWED_HOSTS: "localhost, 127.0.0.1, your_service_IP" or just "*"
-  DATABASE_URL: postgres://database_username:database_password@host_IP:host_port/database_name
-  DEBUG: "False"
-  SECRET_KEY: your_sercret_key
+  allowed_hosts: "localhost, 127.0.0.1, your_service_IP" or just "*"
+  database_url: postgres://database_username:database_password@host_IP:host_port/database_name
+  debug: "False"
+  secret_key: your_sercret_key
 ```
 
 запустите загрузку переменных окружения
