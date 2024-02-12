@@ -3,23 +3,6 @@ kind: ConfigMap
 metadata:
   name: test-django-config
 data:
-  name: ALLOWED_HOSTS
-  valueFrom:
-    secretKeyRef:
-       name: test-secret
-       key: allowed_hosts
-  name: DATABASE_URL
-  valueFrom:
-    secretKeyRef:
-       name: test-secret
-       key: database_url
-  name: DEBUG
-  valueFrom:
-    secretKeyRef:
-       name: test-secret
-       key: debug
-  name: SECRET_KEY
-  valueFrom:
-    secretKeyRef:
-       name: test-secret
-       key: secret_key
+  ALLOWED_HOSTS: "localhost, 127.0.0.1, your_service_IP" or just "*"
+  DEBUG: "False" 
+  

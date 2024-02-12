@@ -27,4 +27,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: test-django-config
+            - secretRef:
+		            name: test-secret
       restartPolicy: Never
